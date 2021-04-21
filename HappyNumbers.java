@@ -30,3 +30,33 @@ class Solution {
         return s;
     }
 }
+////////////////////////////////////////////////
+class Solution {
+    public boolean isHappy(int n) {
+        HashSet<Integer> h=new HashSet<>();
+        if(n==1)
+            return true;
+        int slow=n;
+        int fast=n;
+       do{
+        slow=sum(slow);
+        fast=sum(fast);
+        fast=sum(fast);
+           if(fast==1)
+               return true;
+       }while(slow!=fast);
+           return false;
+        
+    }
+    public int sum(int n)
+    {
+        int s=0;
+        while(n>0)
+        {
+            int d1=n%10;
+             s=s+d1*d1;
+            n=n/10;
+        }
+        return s;
+    }
+}
